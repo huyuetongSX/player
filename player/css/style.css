@@ -1,0 +1,471 @@
+body{
+	overflow: hidden;
+	font-family: 'Microsoft YaHei UI','Microsoft Yahei','Microsoft Jhenghei',helvetica,tahoma,arial,sans-serif;
+}
+img{
+	width: 100%;
+	display: block;
+}
+.loading {
+	position: absolute;
+	z-index: 9999;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s ease;
+}
+.loading.active{
+	opacity: 1;
+	visibility: visible;
+}
+.loading p {
+	font-size: 20px;
+	font-weight: 100;
+	margin-top: 30px;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+	color: #0083c1;
+}
+.spinner {
+	margin: 100px;
+	width: 50px;
+	height: 60px;
+	text-align: center;
+	font-size: 10px;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	position: absolute;
+}
+.spinner>div {
+	height: 100%;
+	width: 3px;
+	display: inline-block;
+	-webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+	animation: stretchdelay 1.2s infinite ease-in-out;
+    background-color: #0083c1;
+}
+.spinner .rect2 {
+	-webkit-animation-delay: -1.1s;
+	animation-delay: -1.1s;
+}
+.spinner .rect3 {
+	-webkit-animation-delay: -1.0s;
+	animation-delay: -1.0s;
+}
+.spinner .rect4 {
+	-webkit-animation-delay: -0.9s;
+	animation-delay: -0.9s;
+}
+.spinner .rect5 {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+}
+@-webkit-keyframes stretchdelay {
+	0%,
+	40%,
+	100% {
+		-webkit-transform: scaleY(0.4)
+	}
+	20% {
+		-webkit-transform: scaleY(1.0)
+	}
+}
+@keyframes stretchdelay {
+	0%,
+	40%,
+	100% {
+		transform: scaleY(0.4);
+		-webkit-transform: scaleY(0.4);
+	}
+	20% {
+		transform: scaleY(1.0);
+		-webkit-transform: scaleY(1.0);
+	}
+}
+.rule{
+	width: 5.46vw;
+	height: 5.46vw;
+	background: url(../images/rule.png)/*tpa=http://www.netime.com.cn/player-demo/images/rule.png*/ no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top: 6.53vw;
+	left: 4.66vw;
+	display: none;
+}
+.language{
+	width: 13.8vw;
+	height: 5.6vw;
+	background: url(../images/language.png)/*tpa=http://www.netime.com.cn/player-demo/images/language.png*/ no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top: 6.26vw;
+	right: 2.4vw;
+	display: block;
+}
+.footer{
+	width: 100%;
+	height: 22.26vw;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+}
+.footer img{
+	width: 68.53vw;
+	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.content{
+	width: 100%;
+	height: calc(100vh - 22.26vw - 37.6vw);
+}
+.accordion{
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid #e5e5e5;
+}
+.accordion li{
+	width: 100%;
+	height: 16.6666667%;
+	border-bottom: 1px solid #e5e5e5;
+	position: relative;
+	transition: height 0.5s 0.5s ease;
+	overflow: hidden;
+}
+.accordion.active li{
+	height: 2%;
+}
+.accordion.active li.active{
+	height: 90%;
+}
+.normal{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	left: 0;
+	z-index: 11;
+	transition: all 0.5s 1s ease;
+}
+.accordion.active .normal{
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1;
+	transition: all 0.5s ease;
+}
+.normal .name{
+	width: auto;
+	height: 16.66vw;
+	max-height: 100%;
+	position: absolute;
+	top: 50%;
+	left: 10.13vw;
+	transform: translateY(-50%);
+	z-index: 3;
+}
+.normal .city{
+	width: 100%;
+	max-width: 750px;
+	height: auto;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+}
+.music-box{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s ease;
+}
+.accordion.active li.active .music-box{
+	visibility: visible;
+	opacity: 1;
+	transition: all 0.5s 1s ease;
+}
+.close{
+	width: 10vw;
+	height: 10vw;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 999;
+}
+.close:before,
+.close:after{
+	width: 5vw;
+	height: 1px;
+	content: "";
+	display: block;
+	background: #2a2a2a;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.close:before{
+	transform: translate(-50%, -50%) rotate(45deg);
+}
+.close:after{
+	transform: translate(-50%, -50%) rotate(135deg);
+}
+.player{
+	width: 100%;
+	max-width: 750px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 13;
+}
+.player audio{
+	width: 0 !important;
+	height: 0 !important;
+	opacity: 0 !important;
+}
+.player .music-time{
+	position: absolute;
+	top: 21vw;
+	left: 29vw;
+	font-size: 3.46vw;
+	line-height: 1;
+	color: #3f5c8c;
+}
+.music-time .all-time{
+	margin-left: 0.5em;
+}
+.music-time .time-progress{
+	width: 52vw;
+	height: 2px;
+	border-radius: 1px;
+	background: #3f5c8c;
+	display: inline-block;
+	transform: translateY(-0.2em);
+}
+.time-progress .time-pointer{
+	width: 20px;
+	height: 20px;
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translate(-50%, -50%);
+}
+.time-progress .time-pointer:after{
+	width: 8px;
+	height: 8px;
+	display: block;
+	content: "";
+	background: #3f5c8c;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.player .play-btn{
+	width: 5.86vw;
+	height: 5.86vw;
+	background: #3F5C8C;
+	border-radius: 50%;
+	display: block;
+	position: absolute;
+	top: 27.2vw;
+	left: 51.46vw;
+}
+.player .play-btn:before,
+.player .play-btn:after{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+.player .play-btn:before{
+    border: 0vw solid #fff;
+	left: 45%;
+	opacity: 0;
+}
+.player .play-btn:after{
+    left: 55%;
+    border-top: 1.4vw solid transparent;
+    border-bottom: 1.4vw solid transparent;
+    border-left: 2vw solid #fff;
+}
+.player .play-btn.active:before{
+	left: 40%;
+	opacity: 1;
+	border-top: 1.4vw solid #fff;
+    border-bottom: 1.4vw solid #fff;
+    border-left: 0.5vw solid #fff;
+}
+.player .play-btn.active:after{
+	left: 60%;
+	border-top: 1.4vw solid #fff;
+    border-bottom: 1.4vw solid #fff;
+    border-left: 0.5vw solid #fff;
+}
+.player .music-share{
+	width: 3.06vw;
+	height: 3.06vw;
+	display: block;
+	background: url(../images/music-share.png)/*tpa=http://www.netime.com.cn/player-demo/images/music-share.png*/ no-repeat;
+	background-size: 100% 100%;
+	position: absolute;
+	top: 29.2vw;
+	left: 87.2vw;
+}
+.music-desc,
+.music-lyrics{
+	width: 100%;
+	max-width: 750px;
+	height: calc(100% - 39.6vw);
+	position: absolute;
+	top: 39.6vw;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.music-lyrics{
+	display: none;
+	background: rgba(255, 255, 255, 0.9);
+	font-size: 12px;
+	text-align: center;
+	line-height: 22px;
+	color: #3F5C8C;
+	overflow: hidden;
+}
+.music-lyrics-in{
+	width: 100%;
+	height: auto;
+	position: relative;
+	top: calc(50% - 11px);
+	transform: translateY(22px);
+	transition: all 0.3s ease;
+}
+.music-lyrics.active{
+	display: block;
+}
+.music-lyrics:before,
+.music-lyrics:after{
+	width: 100%;
+	height: 50%;
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	z-index: 1;
+}
+.music-lyrics:before{
+	top: 0;
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(#fff), to(rgba(255, 255, 255, 0)));
+}
+.music-lyrics:after{
+	bottom: 0;
+    background:-webkit-gradient(linear, 0 0, 0 bottom, from(rgba(255, 255, 255, 0)), to(#fff));
+}
+.music-desc img{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.music-desc .desc{
+	position: absolute;
+	top: 40%;
+	left: 0;
+	transform: translateY(-50%);
+}
+.old-music{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: 1000;
+	background: #fff;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.5s ease;
+}
+.old-music.active{
+	visibility: visible;
+	opacity: 1;
+}
+.old-header .old-close{
+	width: 12.125vw;
+	height: 4.6875vw;
+	position: absolute;
+	top: 17.1875vw;
+	left: 84.375vw;
+	display: block;
+}
+.old-music-list{
+	width: 0;
+	height: 0;
+	opacity: 0;
+}
+.old-main{
+	position: relative;
+}
+.old-play-btn{
+	width: 100%;
+	height: auto;
+	padding: 24.0625vw 4.6875vw 0 5vw;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.old-play-btn li{
+	width: 100%;
+	height: 15.9375vw;
+	margin-bottom: 1px;
+	position: relative;
+}
+.old-play-btn li:before,
+.old-play-btn li:after{
+	display: block;
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 90%;
+	transform: translateY(-50%);
+	transition: all 0.3s ease;
+}
+.old-play-btn li:before{
+    border-top: 3.04vw solid #fff;
+    border-bottom: 3.04vw solid #fff;
+    border-left: 0 solid #fff;
+}
+.old-play-btn li:after{
+    border-top: 3.04vw solid transparent;
+    border-bottom: 3.04vw solid transparent;
+    border-left: 3.75vw solid #fff;
+}
+.old-play-btn li.active:before,
+.old-play-btn li.active:after{
+    border-top: 3.04vw solid #fff;
+    border-bottom: 3.04vw solid #fff;
+    border-left: 1vw solid #fff;
+}
+.old-play-btn li.active:after{
+	left: 93%;
+}
